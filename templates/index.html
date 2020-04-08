@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>DataVal Analytics Bank</title>
+
+  <!-- Custom fonts for this theme -->
+  <link href="/estatic/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  
+
+  <!-- Theme CSS -->
+  <link href="/estatic/css/freelancer.min.css" rel="stylesheet">
+
+  <style>
+
+        #detailsForm{
+        padding: 25px 50px;
+        
+        
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column; 
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+      }
+
+      #formContent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 650px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        text-align: center;
+      }
+
+      #formFooter {
+        background-color: #f6f6f6;
+        border-top: 1px solid #dce8f1;
+        padding: 25px;
+        text-align: center;
+        -webkit-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+      }
+
+
+      /* FORM TYPOGRAPHY*/
+      #message{
+        width:89%;
+      }
+
+      input[type=button], input[type=submit], input[type=reset]  {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      #message:hover, input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+        background-color: #39ace7;
+      }
+
+      #message:active,input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+      }
+
+      #message,input[type=date],input[type=text] {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        /* padding: 15px 32px; */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+      }
+
+      #message:focus,input[type=date]:focus,input[type=text]:focus {
+        background-color: #fff;
+        border-bottom: 2px solid #5fbae9;
+      }
+
+      #message,input[type=date],input[type=text]:placeholder {
+        color: #cccccc;
+      }
+
+      select {
+        background-color: #f6f6f6;
+        border: none;
+        color: #0d0d0d;
+        /* padding: 15px 32px; */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        width: 85%;
+        border: 2px solid #f6f6f6;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+      }
+
+
+      /* ANIMATIONS */
+
+      /* Simple CSS3 Fade-in-down Animation */
+
+
+
+
+
+      /* Simple CSS3 Fade-in Animation */
+      .underlineHover:after {
+        display: block;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 2px;
+        background-color: #56baed;
+        content: "";
+        transition: width 0.2s;
+      }
+
+      .underlineHover:hover {
+        color: #0d0d0d;
+      }
+
+      .underlineHover:hover:after{
+        width: 100%;
+      }
+
+
+
+      /* OTHERS */
+
+      *:focus {
+          outline: none;
+      } 
+
+      #icon {
+        width:60%;
+      }
+      #ui-datepicker-div
+      {
+        background-color: antiquewhite;
+      }
+      /* .bg-primary
+      {
+        background-color: #c7d0ca;
+      } */
+
+    
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <!-- <div class="container"> -->
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/estatic/img/dv.png"></a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Guidelines</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">e-KYC</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger contact_nav" >Contact</a>
+          </li>
+          <li class="dropdown open" style = "text-align: center;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <p><spam id = "username">User</spam> <b class="caret"></b></p>
+            </a>
+            <ul class="dropdown-menu" style = "position: absolute;left:-100px">
+              <li style = "text-align: center;"><a id = "logout">Logout</a></li>
+              
+            </ul>
+          </li>
+        </ul>
+      </div>
+    <!-- </div> -->
+  </nav>
+
+  <div class="modal fade" id="mandatory_details_check" role="dialog">
+      <div class="modal-dialog" style = "width: 30%;">
+  
+          <div class="modal-content">
+          
+          <div class="modal-body" style = "text-align: center;">
+              <h6 >Please fill all Mandatory(*) Details</h6>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Ok</button>
+          </div>
+         
+          </div>
+          
+      </div>
+  </div>
+
+  <div class="modal fade" id="phone_number_validate" role="dialog">
+      <div class="modal-dialog" style = "width: 30%;">
+  
+          <div class="modal-content">
+          
+          <div class="modal-body" style = "text-align: center;">
+              <h6 >Please Provide Valid Phone Number</h6>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Ok</button>
+          </div>
+         
+          </div>
+          
+      </div>
+  </div>
+
+  <div class="modal fade" id="email_validate" role="dialog">
+      <div class="modal-dialog" style = "width: 30%;">
+  
+          <div class="modal-content">
+          
+          <div class="modal-body" style = "text-align: center;">
+              <h6 >Please Provide Valid Email</h6>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Ok</button>
+          </div>
+         
+          </div>
+          
+      </div>
+  </div>
+
+  <div class="modal fade" id="pan_number_validate" role="dialog">
+      <div class="modal-dialog" style = "width: 30%;">
+  
+          <div class="modal-content">
+          
+          <div class="modal-body" style = "text-align: center;">
+              <h6 >Please Provide Valid Pan Number</h6>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Ok</button>
+          </div>
+         
+          </div>
+          
+      </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal_failure" role="dialog" >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">e-KYC form Status</h4>
+          </div>
+          <div class="modal-body">
+            <h6 style="color: red">KYC form Verification Failed</h6>
+            <h6 style="color: red">Please Provide Valid Details</h6>
+          </div>
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal_success" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            <h4 class="modal-title">e-KYC form Status</h4>
+          </div>
+          <div class="modal-body">
+              <h6 style="color: green">Following Details are Verified</h6>
+              <h6>Name</h6>
+              <h6>Father's Name</h6>
+              <h6>Date of Birth</h6>
+              <h6>Document Number</h6>
+              <h6>Address</h6>
+              <h6 style="color: green">PROCEED FOR FACE RECOGNITION AND LIVELINESS</h6>
+          </div>
+          <button id="faceValidatePage" type="button" class="btn btn-success" >Continue</button>
+          <!-- <button type="button" class="btn btn-info" data-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Masthead -->
+  <header class="masthead bg-primary text-white text-center" >
+    <div class = "row">
+      <div class ="col-md-12">
+        <div class="container d-flex align-items-center flex-column">
+
+            <!-- Masthead Avatar Image -->
+            <img class="masthead-avatar mb-5" src="/estatic/img/dv_logo.png" alt="">
+      
+            <!-- Masthead Heading -->
+            <h1 class="masthead-heading text-uppercase mb-0">DataVal Bank</h1>
+      
+            <!-- Icon Divider -->
+            <!-- <div class="divider-custom divider-light">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="divider-custom-line"></div>
+            </div> -->
+      
+            <!-- Masthead Subheading -->
+            <p class="masthead-subheading font-weight-light mb-0">One Stop Solution for all your Banking needs</p>
+      
+          </div>
+
+          <!-- Icon Divider -->
+          <div class="divider-custom">
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="divider-custom-line"></div>
+            </div>
+
+          <!-- About Section Heading -->
+         
+          <h2 class="page-section-heading text-center text-uppercase" >Guidelines</h2>
+      
+          <!-- Icon Divider -->
+          <!-- <div class="divider-custom divider-light" >
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon">
+              <i class="fas fa-star" style="color: #0d0d0d;"></i>
+            </div>
+            <div class="divider-custom-line"></div>
+          </div> -->
+    
+          <!-- About Section Content -->
+          <div class="row">
+        <div class="col-lg-2"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6 ml-auto" >
+              <ul style = "text-align: left;">
+                <li class="lead" style = "font-size: 1.5rem;">Ensure your device's camera is working</li>
+                <li class="lead" style = "font-size: 1.5rem;">You need to have one of the following documents:
+                <ul>
+                  <li class="lead" style = "font-size: 1.5rem;">PAN Card</li>
+                  <li class="lead" style = "font-size: 1.5rem;">Aadhaar Card</li>
+                  <li class="lead" style = "font-size: 1.5rem;">Driving License</li>
+                </ul>
+                </li>
+                <li class="lead" style = "font-size: 1.5rem;">Your presence is highly needed in front of the CAMERA!</li>
+              </ul>
+              <button type="button" id= "scoll_down" class="btn btn-dark" style="position: absolute;left: 25%;">Scroll Down</button>
+            </div>
+            <div class="col-lg-2"></div>
+          </div>
+      </div>
+
+      <!-- <div class = "col-md-6" >
+
+        <div class="container" style = "position: absolute;top:10%;">
+
+            
+            <h2 class="page-section-heading text-center text-uppercase" style="color: #0d0d0d;">Guidelines</h2>
+      
+            
+            <div class="divider-custom divider-light" >
+              <div class="divider-custom-line"></div>
+              <div class="divider-custom-icon">
+                <i class="fas fa-star" style="color: #0d0d0d;"></i>
+              </div>
+              <div class="divider-custom-line"></div>
+            </div>
+      
+           
+            <div class="row">
+          <div class="col-lg-2"></div>
+              <div class="col-lg-8 ml-auto">
+            <ul>
+              <li class="lead">Ensure your device's camera is working</li>
+              <li class="lead">You need to have one of the following documents:
+              <ul>
+                <li class="lead">PAN Card</li>
+                <li class="lead">Aadhaar Card</li>
+                <li class="lead">Driving License</li>
+              </ul>
+              </li>
+              <li class="lead">Your presence is highly needed in front of the CAMERA!</li>
+            </ul>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+      
+            
+      
+          </div>
+
+      </div> -->
+
+    </div>
+    
+  </header>
+
+  <!-- Portfolio Section -->
+  <!-- <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+
+      
+      <h2 class="page-section-heading text-center text-uppercase">Guidelines</h2>
+
+     
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      
+      <div class="row">
+		<div class="col-lg-2"></div>
+        <div class="col-lg-8 ml-auto">
+		  <ul>
+			  <li class="lead">Ensure your device's camera is working</li>
+			  <li class="lead">You need to have one of the following documents:
+				<ul>
+					<li class="lead">PAN Card</li>
+					<li class="lead">Aadhaar Card</li>
+					<li class="lead">Driving License</li>
+				</ul>
+			  </li>
+			  <li class="lead">Your presence is highly needed in front of the CAMERA!</li>
+		  </ul>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+
+      
+
+    </div>
+  </section> -->
+
+  <!-- About Section -->
+  <section class="page-section bg-primary text-white mb-0" id="e-KYC_form">
+    <div class="container">
+
+      <!-- Contact Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">E-KYC Details</h2>
+
+      <!-- Icon Divider -->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Contact Section Form -->
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-secondary">
+
+          <form id = "detailsForm" name = "detailsForm">
+      
+            <div id = "details_matched" class="form-group text-center" style = "display: none">
+                <span style="font-family: wingdings; font-size: 200%;">&#x2611;</span>
+                
+                <label>Details Matched</label>
+                
+            </div>
+            <div id = "details_not_matched" class="form-group text-center" style = "display: none">
+                <span style="font-family: wingdings; font-size: 150%;">&#x274E;</span> 
+                <label>Details Not Matched</label>
+                
+            </div>
+            <br>
+            <div class="form-group row">
+              <label for="name" class="col-4 col-form-label" >Name *</label> 
+              <div class="col-8">
+                <input id="ocr_name" name="name" placeholder="Name" class="form-control here"  type="text">
+                <span id = "name_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "name_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            
+            <div class="form-group row" >
+              <label for="fatherName" class="col-4 col-form-label">Father's Name *</label> 
+              <div class="col-8">
+                <input id="ocr_fatherName" name="fname" placeholder="Father's Name" \
+                  class="form-control here"  required="required" type="text">
+                  <span id = "fname_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                  <span id = "fname_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+      
+            
+            <div class="form-group row">
+              <label for="dob" class="col-4 col-form-label">Date of Birth *</label>
+              
+              <div class="col-8" >
+                  <!-- style="position:relative;left:1%;width:85%" -->
+                <input id="ocr_dob" name="dob" placeholder="DOB" class="form-control here form-control datepicker" type="text" >
+                <span id = "dob_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "dob_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+              <!-- <div class="col-1"></div> -->
+            </div>
+            <div class="form-group row">
+              <label for="ocr_cardNumber_type" class="col-4 col-form-label">Document Type*</label> 
+              <div class="col-8">
+                <select id = "document_type_select" name="card_type" class="selectpicker" style = "height: 100%">
+                  <option  selected="true" disabled="disabled" value="">Select here</option>
+                  <option value="pan">Pan Card</option>
+                  <option value="aadhar">Aadhar Card</option>
+                  <option value="drivingLicence">Driving Licence</option>
+                </select>
+                
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="ocr_cardNumber" class="col-4 col-form-label"><span id ="documentType">Document</span> Number *</label> 
+              <div class="col-8">
+                <input id="ocr_cardNumber" name="cardNumber" placeholder="Document Number" class="form-control here" \
+                    type="text">
+                <span id = "pan_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "pan_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="number" class="col-4 col-form-label">Mobile Number*</label> 
+              <div class="col-8">
+                <input id="number" name="text" placeholder="Mobile Number" \
+                  class="form-control here"  required="required" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="email" class="col-4 col-form-label">Email*</label> 
+              <div class="col-8">
+                <input id="email" name="text" placeholder="Email" \
+                  class="form-control here"  required="required" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Address" class="col-4 col-form-label" style="font-size: 1.5em;">Address</label> 
+            </div>
+
+            <div id = "address_match_true" class="form-group row" style = "display: none;">
+              <label for="Address" class="col-12 col-form-label" style="font-size: 1em;color: green;"><b>Address is Matched With Document Address</b></label> 
+            </div>
+
+            <div id = "address_match_false" class="form-group row" style = "display: none;">
+              <label for="Address" class="col-12 col-form-label" style="font-size: 1em;color: red;"><b>Address is Invalid..!<br>Please check Provided Address with Document Address</b></label> 
+            </div>
+
+
+            <div class="form-group row">
+              <label for="house_number" class="col-4 col-form-label">House No*</label> 
+              <div class="col-8">
+                <input id="house_number" name="text" placeholder="House number" \
+                  class="form-control here"  required="required" type="text">
+                <span id = "house_number_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "house_number_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="street_locality" class="col-4 col-form-label">Street and Locality*</label> 
+              <div class="col-8">
+                <input id="street_locality" name="text" placeholder="Street,Locality" \
+                  class="form-control here"  required="required" type="text">
+                <span id = "street_locality_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "street_locality_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="vtc" class="col-4 col-form-label">Village or Town or City Name*</label> 
+              <div class="col-8">
+                <input id="vtc" name="text" placeholder="Village or Town or City Name" \
+                  class="form-control here"  required="required" type="text">
+                <span id = "vtc_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "vtc_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="district" class="col-4 col-form-label">District*</label> 
+              <div class="col-8">
+                <input id="district" name="text" placeholder="District" \
+                  class="form-control here"  required="required" type="text">
+                <span id = "district_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "district_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="state" class="col-4 col-form-label">State*</label> 
+              <div class="col-8">
+                <input id="state" name="text" placeholder="State" \
+                  class="form-control here"  required="required" type="text">
+                <span id = "state_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "state_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="pincode" class="col-4 col-form-label">Pin Code*</label> 
+              <div class="col-8">
+                <input id="pincode" name="text" placeholder="pincode" \
+                  class="form-control here"  required="required" type="text">
+                <span id = "pincode_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "pincode_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="form-group row">
+              <label for="Address" class="col-4 col-form-label">Address*</label> 
+              <div class="col-8">
+                <textarea class="form-control" id="message" rows="5" placeholder="Address" required="required" \
+                  data-validation-required-message="Please enter your Address."></textarea>
+                <span id = "address_correct_tick_mark" style="font-family: wingdings; font-size: 200%;display: none;">&#x2611;</span>
+                <span id = "address_wrong_tick_mark" style="font-family: wingdings; font-size: 150%;display: none;">&#x274E;</span>
+              </div>
+            </div> -->
+
+
+            <div class="form-group row">
+              <label for="document" class="col-4 col-form-label" id = "primary_document">Document*</label> 
+              <div class="col-8">
+                <input type="file" id="document" name="pic" accept="image/*">
+              </div>
+            </div>
+
+            <div class="form-group row" id = "aadhar_upload_file" style="display: none;">
+              <label for="aadhar" class="col-4 col-form-label">Aadhar Card Image* <br><span style="font-size: 0.8em;;">(Address Proof)</span></label>
+              <div class="col-8">
+                <input type="file" id="aadhar" name="pic" accept="image/*">
+              </div>
+            </div>
+
+            
+          </form>
+          
+          <div id = "process_div">
+            <i id = "ocr_processid" class="fa fa-spinner fa-spin" style="position: relative;left: 49%;font-size:48px;color:red;display: none"></i>
+          </div>
+          <br>
+          <div class="form-group text-center">
+            <button id = "verify_details" type="submit" class="btn btn-warning" >Submit</button>
+            <!-- <button id="testhtml" type="button" class="btn btn-info" >Face Page</button> -->
+          </div>
+      
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  
+
+  <!-- Footer -->
+  <footer id = "contact_info" class="footer text-center">
+    <!-- <div class="container"> -->
+      <div class="row">
+
+        <!-- Footer Location -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Location</h4>
+          <p class="lead mb-0">GoWorkZone, 74, Second floor, 
+			<br>Krishna Reddy Colony,  
+            <br>Domlur, Bengaluru, 
+			<br>Karnataka 560071, India</p>
+        </div>
+
+        <!-- Footer Social Icons -->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/dataval">
+            <i class="fab fa-fw fa-facebook-f"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/datavalanalytic">
+            <i class="fab fa-fw fa-twitter"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/company/dataval-analytics-corporation">
+            <i class="fab fa-fw fa-linkedin-in"></i>
+          </a>
+          <a class="btn btn-outline-light btn-social mx-1" href="http://www.datavalanalytics.com/">
+            <i class="fab fa-fw fa-dribbble"></i>
+          </a>
+        </div>
+
+        <!-- Footer About Text -->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">About DataVal Analytics</h4>
+          <p class="lead mb-0">To know more about us, reach us @
+            <a href="http://www.datavalanalytics.com">Dataval Analytics</a></p>
+        </div>
+
+      </div>
+    <!-- </div> -->
+  </footer>
+
+  <!-- Copyright Section -->
+  <section class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Your Website 2019</small>
+    </div>
+  </section>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Portfolio Modal 1 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/cabin.png" alt="">
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 2 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/cake.png" alt="">
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 3 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/circus.png" alt="">
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 4 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/game.png" alt="">
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/safe.png" alt="">
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 6 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+        </button>
+        <div class="modal-body text-center">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title -->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image -->
+                <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/submarine.png" alt="">
+                <!-- Portfolio Modal - Text -->
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <button class="btn btn-primary" href="#" data-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i>
+                  Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/estatic/vendor/jquery/jquery.min.js"></script>
+  <script src="/estatic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Plugin JavaScript -->
+  <script src="/estatic/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- <script src="/estatic/vendor/jquery/datepicker.js"></script> -->
+  <!-- <script src="/estatic/vendor/jquery/jquery.min.1.12.js"></script> -->
+  <script src="/estatic/vendor/jquery/jquery-ui.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="/estatic/js/jqBootstrapValidation.js"></script>
+  <script src="/estatic/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="/estatic/js/freelancer.min.js"></script>
+
+  <script src="{{url_for('static',filename='js/index.js') }}"></script>
+  <script>
+      username = '{{value}}'
+      $("#username").empty()
+      $("#username").append(username)
+    </script>
+
+</body>
+
+</html>

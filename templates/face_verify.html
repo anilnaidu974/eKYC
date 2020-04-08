@@ -1,0 +1,724 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DataVal Analytics Bank</title>
+
+
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+    <!-- <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script> -->
+    <script src="{{url_for('static',filename='js/custom.js') }}"></script>
+    <script src="{{url_for('static',filename='js/main.js') }}"></script>
+    <script src="{{url_for('static',filename='js/ga.js') }}"></script>
+    
+
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='css/heroic-features.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="https://cdn.rawgit.com/adriancooney/console.image/c9e6d4fd/console.image.min.js"></script>
+
+    <!-- Custom fonts for this theme -->
+    <link href="/estatic/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="/estatic/css/freelancer.min.css" rel="stylesheet">
+
+
+    <style>
+		
+    /* #photo_canvas_box
+      {
+        position: relative;
+        left:0%;
+        top:10%;
+        height:80px;
+        width:80px;
+        border:1px solid green;
+        display:none
+      } */
+
+      /* #box
+      {
+        position: absolute;
+        float:right;
+        top:30%;
+        height:30%;
+        width:15%;
+        border:2px solid green;
+        display:none
+      } */
+
+       #box
+      {
+        position: absolute;
+        float:right;
+        top:30%;
+        left:66%;
+        height:30%;
+        width:30%;
+        border:2px solid green;
+        display:none
+      }
+
+      .vertical-row {
+        Float:left;
+        height:5px;
+        width:100%; /* edit this if you want */
+        background-color: black
+      } 
+
+      /* .container
+      {
+        margin: 0px;
+        width: 100%;
+      }
+      */
+     
+        
+        
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+  <!-- <div class="container">-->
+    <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/estatic/img/dv.png"></a> 
+    <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Guidelines</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger">e-KYC</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger contact_nav" >Contact</a>
+        </li>
+        <li class="dropdown open" style = "text-align: center;">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p><spam id = "username">User</spam> <b class="caret"></b></p>
+          </a>
+          <ul class="dropdown-menu" style = "position: absolute;left:-100px">
+            <li style = "text-align: center;"><a id = "logout">Logout</a></li>
+            
+          </ul>
+        </li>
+      </ul>
+    </div>
+  <!-- </div> -->
+</nav>
+
+
+<!-- Creates the bootstrap modal where the image will appear -->
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style = "position: fixed;top:150px">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <!-- <div class="modal-header">
+            <h5 style = "color:#007bff">Total Blinks before ScreenShot : <span id = "count"></span></h5>
+          </div> -->
+        <div class="modal-header">
+          <h4 class="modal-title text-center" id="myModalLabel">Gesture preview</h4>
+        </div>
+        <div class="modal-body">
+            <h6 id="myModalLabel">Please show your hand to camera as shown in green rectangular box below</h6>
+            <h6 id="myModalLabel">Click close button to close preview</h6>
+          <img src="" id="imagepreview" style="width: 400px; height: 264px;" >
+        </div>
+        <button type="button" id = "gesture_btn_close" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="gesture_verify_success" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Gesture Recognition Status</h4>
+        </div>
+        <div class="modal-body">
+            <h6 style="color: green">Gesture Recognition is Successful</h6>
+            <h6 style="color: green">Please verify LIVELINESS below....</h6>
+        </div>
+        <button type="button" id = "gesture_pass" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="gesture_verify_failure" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Gesture Recognition Status</h4>
+        </div>
+        <div class="modal-body">
+            <h6 style="color: red">Gesture Recognition Failed</h6>
+            <h6 style="color: red">Please Follow the same Guidelines again.</h6>
+        </div>
+        
+        <button id = "gesture_failure_close_btn" type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  
+</div>
+
+<div class="modal fade" id="face_verify_success" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Face Recognition Status</h4>
+        </div>
+        <div class="modal-body">
+            <h6 style="color: green">FACE RECOGNITION AND LIVELINESS Successful</h6>
+            <h6 style="color: green">Congratulation Your e-KYC Completed</h6>
+        </div>
+        <button id="success_page" type="button" class="btn btn-success" >Finish</button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="face_verify_failure" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Face Recognition Status</h4>
+        </div>
+        <div class="modal-body">
+            <h6 style="color: red">FACE RECOGNITION AND LIVELINESS Failed</h6>
+            <h6 style="color: red">Please Follow the same Guidelines again.</h6>
+        </div>
+        
+        <button id = "live_failure_close_btn" type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  
+</div>
+
+<section class="page-section bg-primary text-white mb-0" id="about">
+    <br>
+    <br>
+    <h4 class="page-section-heading text-center text-uppercase text-secondary mb-0">Gesture Validation</h4>
+    <br>
+    <div class="container" id="query_image" style="display: inline">
+        
+        <form enctype="multipart/form-data" id="file-upload-form" class="uploader">
+            <div class="row text-center">
+                
+                <div class="col-md-2 col-sm-2 hero-feature" style="display: inline"></div>
+
+                <div class="col-md-5 col-sm-5 hero-feature">
+
+                   
+                  <div class="row">
+                      <div id= "webcam" class="col-md-3"></div>
+                      <div id= "webcam" class="col-md-6">
+                          <div style="width:100%;">
+                              <div id= "box"></div>
+                              <video id="video_photo"  class="video-circle" width="100%" height="100%" style="border: 2px solid black" \
+                              poster="/estatic/img/camera.png" >
+                              </video>
+                              <canvas style = "display:none" id = "photo_canvas"></canvas>
+                              <img id = "photo_img" src = "">
+                          </div>
+
+                      </div>
+                      <div id= "webcam" class="col-md-3"></div>
+                  </div>
+                  <!-- <div class="row">
+                      <div id= "webcam" class="col-md-12">
+                          <div style="width:30%;">
+                              <div id= "box" ></div>
+                              <video id="video_photo"  class="video-circle" width="150%" height="150%" style="border: 2px solid black" \
+                              poster="/estatic/img/camera.png" >
+                              </video>
+                              
+                              <canvas style = "display:none" id = "photo_canvas"></canvas>
+                              <img id = "photo_img" src = "">
+                          </div>
+
+                      </div>
+                  </div> -->
+
+                          <br>
+				 
+                </div>
+
+                <div class="col-md-4 col-sm-4 hero-feature" style="display: inline">
+                    <div id = "guidelines">
+                      <h4 style = "text-decoration: underline;">GUIDELINES</h4>
+                      <br>
+                      <div>
+                          <div id = "gesture_button_show">
+                              <h5>1. Click Gesture Button to get Pose</h5>
+                              <button id = "gesture" class="btn btn-info text-center" type = "button" style="background-color: #007bff ">Gesture</button>
+                          </div>
+                          <div id = "camera_button_show" style="display: none;" >
+                              <h5>2. Click Camera to access Webcam</h5>
+                              <!-- <h5 style="text-align: left;" >3. Give Pose as Shown in the Gesture</h5> -->
+                              <button id = "camera" class="btn btn-info text-center" type = "button" style="background-color: #007bff ">Camera</button>
+                          </div>
+                          <div id = "photo_button_show" style="display: none;">
+                              <h5>3. Pose the Hand Gesture inside green rectangular box and face should be visible then Click photo to Capture Image</h5>
+                              <button id = "photo" class="btn btn-info text-center" type = "button" style="background-color: #007bff ">Photo</button>
+                          </div>
+                          <div id = "verify_button_show" style="display: none;">
+                              <h5>4. Click Verify to crosscheck the pose and face</h5>
+                              <button id = "verify_gesture" class="btn btn-info text-center" type = "button" style="background-color: #007bff ">Verify</button>
+                          </div>
+                          
+                      </div>
+                      
+                    </div>
+                </div>
+
+               
+                <div class="col-md-1 col-sm-1 hero-feature" style="display: inline"></div>
+  
+            </div>
+        </form>
+  
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4 col-sm-4 hero-feature" style="display: inline"></div>
+        <div class="col-md-4 col-sm-4 hero-feature" style="display: inline">
+            <div id = "process_div">
+                <i id = "photo_processid" class="fa fa-spinner fa-spin" style="font-size:48px;color:red;display: none"></i>
+              </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-4 hero-feature" style="display: inline"></div>
+    </div>
+    
+    
+  </section>
+  <div class = "vertical-row"></div>
+
+<section class="page-section bg-primary text-white mb-0" id="live_face_section">
+  <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Liveliness Detection</h3>
+  <br>
+  <div class="container" id="query_image" style="display: inline">
+      
+      <form enctype="multipart/form-data" id="file-upload-form" class="uploader">
+          <div class="row text-center">
+              
+              <div class="col-md-2 col-sm-2 hero-feature" style="display: inline"></div>
+              <div class="col-md-5 col-sm-5 hero-feature" style="display: inline">
+
+                  <div class="row">
+                      <div id= "webcam" class="col-md-3"></div>
+                      <div id= "webcam" class="col-md-6">
+                          <div style="width:100%;">
+                              <video id="gum"  class="video-circle" width="100%" height="100%" style="border: 2px solid black" \
+                              poster="/estatic/img/camera.png" >
+                              </video>
+                              <canvas style = "display:none" id = "cv"></canvas>
+                              <img id = "picture" src = "">
+                          </div>
+
+                      </div>
+                      <div id= "webcam" class="col-md-3"></div>
+                  </div>
+                <!-- <div id= "webcam" >
+                    <video id="gum"  class="video-circle"  width="220" height="220" style="border: 2px solid black;" \
+                    poster="/estatic/img/camera.png" > 
+                    </video>
+                    <canvas style = "display:none" id = "cv"></canvas>
+                    <img id = "picture" src = "">
+                </div> -->
+               
+              <br>
+               
+            </div>
+              <div class="col-md-4 col-sm-4 hero-feature" style="display: inline">
+                  <div id = "guidelines">
+                    <h4 style = "text-decoration: underline;">GUIDELINES</h4>
+                    <br>
+                    <div >
+                        <div id = "live_camera_button_show">
+                            <h5 >1. Click Camera to access Webcam</h5>
+                            <button id = "start" class="btn btn-info text-center" type = "button" style="background-color: #007bff " disabled>Camera</button>
+                        </div>
+                        <div id = "live_done_button_show" style="display: none;">
+                            
+                            <h5>2. Click Done after blinking Eye <span id = "count">5</span> times</h5>
+                            <button id = "screenshot" class="btn btn-info text-center" type = "button" style="background-color: #007bff ">Done</button>
+                        </div>
+                        <div id = "live_verify_button_show" style="display: none;">
+                            <h5>3. Click Verify to check eye blinks and face validation</h5>
+                            <button id = "verify_live" class="btn btn-info text-center" type = "button" style="background-color: #007bff ">Verify</button>
+                        </div>
+                        <!-- <h5>2. Click Done after blinking Eye <span id = "count">5</span> times</h5>
+                        <h5>3. Click Verify to check eye blinks and face validation</h5> -->
+                    </div>
+                    
+                  </div>
+              </div>
+              
+              <div class="col-md-1 col-sm-1 hero-feature" style="display: inline"></div>
+
+          </div>
+      </form>
+
+  </div>
+  <div class="row text-center">
+      <div class="col-md-4 col-sm-2 hero-feature" style="display: inline"></div>
+      <div class="col-md-4 col-sm-6 hero-feature" style="display: inline">
+          <div id = "process_div">
+              <i id = "live_processid" class="fa fa-spinner fa-spin" style="font-size:48px;color:red;display: none"></i>
+            </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-4 hero-feature" style="display: inline"></div>
+  </div>
+  <!-- <div class="row text-center">
+      <div class="col-md-5 col-sm-5 hero-feature" style="display: inline"></div>
+      <div class="col-md-6 col-sm-6 hero-feature" style="display: inline">
+          <div class="text-center" >
+              <button id ="verify_live" class="btn btn-success " type = "button" style="padding: 14px 40px;" disabled >Verify</button>
+          </div>
+      </div>
+      
+      <div class="col-md-1 col-sm-1 hero-feature" style="display: inline"></div>
+  </div> -->
+  
+</section>
+
+<!-- Contact Section -->
+  
+
+  <!-- Footer -->
+  <footer id = "footer_section" class="footer text-center">
+      <!-- <div class="container"> -->
+        <div class="row">
+  
+          <!-- Footer Location -->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Location</h4>
+            <p class="lead mb-0">GoWorkZone, 74, Second floor, 
+        <br>Krishna Reddy Colony,  
+              <br>Domlur, Bengaluru, 
+        <br>Karnataka 560071, India</p>
+          </div>
+  
+          <!-- Footer Social Icons -->
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/dataval">
+              <i class="fab fa-fw fa-facebook-f"></i>
+            </a>
+            <a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/datavalanalytic">
+              <i class="fab fa-fw fa-twitter"></i>
+            </a>
+            <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/company/dataval-analytics-corporation">
+              <i class="fab fa-fw fa-linkedin-in"></i>
+            </a>
+            <a class="btn btn-outline-light btn-social mx-1" href="http://www.datavalanalytics.com/">
+              <i class="fab fa-fw fa-dribbble"></i>
+            </a>
+          </div>
+  
+          <!-- Footer About Text -->
+          <div class="col-lg-4">
+            <h4 class="text-uppercase mb-4">About DataVal Analytics</h4>
+            <p class="lead mb-0">To know more about us, reach us @
+              <a href="http://www.datavalanalytics.com">Dataval Analytics</a></p>
+          </div>
+  
+        </div>
+      <!-- </div> -->
+    </footer>
+  
+    <!-- Copyright Section -->
+    <section class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Your Website 2019</small>
+      </div>
+    </section>
+  
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+  
+    <!-- Portfolio Modals -->
+  
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/cabin.png" alt="">
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/cake.png" alt="">
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/circus.png" alt="">
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/game.png" alt="">
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/safe.png" alt="">
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <i class="fas fa-times"></i>
+            </span>
+          </button>
+          <div class="modal-body text-center">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8">
+                  <!-- Portfolio Modal - Title -->
+                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
+                  <!-- Icon Divider -->
+                  <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon">
+                      <i class="fas fa-star"></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                  </div>
+                  <!-- Portfolio Modal - Image -->
+                  <img class="img-fluid rounded mb-5" src="/estatic/img/portfolio/submarine.png" alt="">
+                  <!-- Portfolio Modal - Text -->
+                  <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                  <button class="btn btn-primary" href="#" data-dismiss="modal">
+                    <i class="fas fa-times fa-fw"></i>
+                    Close Window
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bootstrap core JavaScript -->
+    <script src="/estatic/vendor/jquery/jquery.min.js"></script>
+    <script src="/estatic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- Plugin JavaScript -->
+    <script src="/estatic/vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+    <!-- Contact Form JavaScript -->
+    <script src="/estatic/js/jqBootstrapValidation.js"></script>
+    <script src="/estatic/js/contact_me.js"></script>
+  
+    <!-- Custom scripts for this template -->
+    <!-- <script src="/estatic/js/freelancer.min.js"></script> -->
+  
+    <script>
+      username = '{{value}}'
+      $("#username").empty()
+      $("#username").append(username)
+    </script>
+
+</body>
+</html>
+
